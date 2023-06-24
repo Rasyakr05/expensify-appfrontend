@@ -119,7 +119,7 @@ export const Auth = () => {
     <div style={{ width: '50%', height: '100%',  alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
       <p style={{paddingTop:"80px",paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.3rem)",color:"#176B87",fontWeight:"bold"}}>EXPENSIFY</p>
       <p style={{paddingLeft:"30px",fontSize:"clamp(0.3rem, 1vw, 1.2rem)",color:"#176B87",fontWeight:"bold"}}>"Your complete expense tracker"</p>
-        <p style={{paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.1rem)",color:"#176B87",fontWeight:"bold"}}>Join thousands of individuals, small businesses, and enterprises who have already embraced Expesify as their go-to expense tracking solution. Our app is available on all major platforms, ensuring you have access whenever and wherever you need it.</p>
+        <p style={{paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.1rem)",color:"#176B87",fontWeight:"bold"}}>Join thousands of individuals, small businesses, and enterprises who have already embraced Expensify as their go-to expense tracking solution. Our app is available on all major platforms, ensuring you have access whenever and wherever you need it.</p>
     </div>
     <div style={{ width: '50%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
     <form onSubmit={justifyActive === "tab1" ? onSubmitLogin : onSubmitRegister}>
