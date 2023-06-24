@@ -7,6 +7,8 @@ import axios from "axios";
 import { NavBar } from '../components/navbar';
 import { Button } from '@mui/material';
 import './profile.css';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 export const Profupdate = () => {
   const userID = useGetUserID();
@@ -65,31 +67,92 @@ const Update = (e) => {
 
   return (
     <div>
+     <style>
+      {`
+        body {
+          background-color: #001C30;
+          margin: 0;
+          padding: 0;
+        }
+      `}
+    </style>
       <NavBar />
       
-      <h3 style={{fontWeight:"bold",fontFamily:"sans-serif",marginTop:"40px",marginRight:"100px"}}>Update Your Profile</h3>
-      <div className="profileform">
-      <form className="form" onSubmit={Update}>
-        <h5 className="text1">Name:</h5>
-        <MDBInput className="mb-4" style={{ width: '300px' }} value={info.name} onChange={(e) => handleChange({ name: e.target.value })} id="form5Example1" />
-        <h5 className="text1">Place:</h5>
-        <textarea className="mb-4" textarea style={{ width: '300px',height: '90px',marginRight:"500px" }} value={info.place}  onChange={(e) => handleChange({ place: e.target.value })}
-                    id="form5Example1" />
-        <h5 className="text1">Age:</h5>
-        <MDBInput className="mb-4" type="number" style={{ width: '300px' }} value={info.age} onChange={(e) => handleChange({ age: e.target.value })} id="form5Example1" />
-        <h5 className="text1">Email address:</h5>
-        <MDBInput className="mb-4" type="email" style={{ width: '300px' }} value={info.email} onChange={(e) => handleChange({ email: e.target.value })} id="form5Example2" />
+     <div style={{marginTop:"50px"}}>
+      <div className="profileform add1" > 
+      
+      <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
 
-        <h5 className="text1">Phone no.:</h5>
-        <MDBInput className="mb-4" type="number" style={{ width: '300px' }} value={info.phoneno} onChange={(e) => handleChange({ phoneno: e.target.value })} id="form5Example1" />
-        <h5 className="text1">Education:</h5>
-        <MDBInput className="mb-4" value={info.education} style={{ width: '300px',height: '90px',marginRight:"500px" }} onChange={(e) => handleChange({ education: e.target.value })} id="form5Example1" />
+    >
+      <form className="form" >
+        <div>
+        <div style={{display:"flex"}}>
+      <TextField
+          id="outlined-read-only-input"
+          label="Name"
+          value={info.name}
+          
+         onChange={(e) => handleChange({ name: e.target.value })} />
+           <TextField
+          id="outlined-read-only-input"
+          label="Email"
+          type="email"
+          value={info.email}
+          onChange={(e) => handleChange({ email: e.target.value })}
+           />
+           </div>
+           <div style={{display:"flex"}}>
+       <TextField
+          id="outlined-read-only-input"
+          label="Age"
+          type="number"
+          value={info.age} 
+          onChange={(e) => handleChange({ age: e.target.value })} 
+           />
+        
 
-          <Button type="submit" variant="outlined" style={{ color: '#027148', borderColor: ' #027148',marginRight:"100px" }} block>
+        <TextField
+          id="outlined-read-only-input"
+          label="Contact Number"
+          type="number"
+          value={info.phoneno}
+          onChange={(e) => handleChange({ phoneno: e.target.value })}
+          />
+          </div>
+          <div style={{display:"flex"}}>
+        <p style={{fontSize:"40px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" ,marginTop:"10px",textAlign:"LEFT"}}>UPDATE YOUR </p>
+          <TextField
+          id="outlined-multiline-static"
+          label="Address"
+          multiline
+          rows={4}
+          value={info.place} onChange={(e) => handleChange({ place: e.target.value })}
+           />
+           </div>
+        <div style={{display:"flex"}}>
+        <p style={{fontSize:"40px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold",textAlign:"LEFT" }}>PROFILE INFO  </p>
+         <TextField
+          id="outlined-multiline-static"
+          label="Education"
+          multiline
+          rows={4}
+          value={info.education} 
+          onChange={(e) => handleChange({ education: e.target.value })} 
+           />
+           </div>
+            </div>
+          <Button  variant="contained" style={{backgroundColor:"#176B87"}} onClick={Update}>
             Save
           </Button>
       </form>
+      </Box>
     </div>
     </div>
+    </div>
+   
   );
 };

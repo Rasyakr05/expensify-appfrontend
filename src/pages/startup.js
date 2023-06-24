@@ -49,9 +49,9 @@ export const Startup = () => {
     return(
         <div className='startup-page'>
             <div>
-            <AppBar position="static">
+            <AppBar position="static" sx={{backgroundColor:"#001C30"}} >
       <Toolbar disableGutters>
-        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        
         <Typography
           variant="h6"
           noWrap
@@ -60,52 +60,18 @@ export const Startup = () => {
           sx={{
             mr: 2,
             display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
+            fontFamily: 'arial',
             fontWeight: 700,
-            letterSpacing: '.3rem',
+
             color: 'inherit',
             textDecoration: 'none',
+            paddingLeft:"12px",
           }}
         >
-          TRACKIFY
+          EXPENSIFY
         </Typography>
 
-        {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-          <IconButton
-            size="large"
-            aria-label="menu"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{
-              display: { xs: 'block', md: 'none' },
-            }}
-          >
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box> */}
+        
         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
         <Typography
           variant="h5"
@@ -116,14 +82,14 @@ export const Startup = () => {
             mr: 2,
             display: { xs: 'flex', md: 'none' },
             flexGrow: 1,
-            fontFamily: 'monospace',
+            fontFamily: 'arial',
             fontWeight: 700,
-            letterSpacing: '.3rem',
+
             color: 'inherit',
             textDecoration: 'none',
           }}
         >
-          TRACKIFY
+          EXPENSIFY
         </Typography>
 
 
@@ -145,7 +111,7 @@ export const Startup = () => {
           <Tooltip title="Open settings">
           <Button
               
-              sx={{ my: 2, color: 'white', display: 'block' }}
+              sx={{ my: 2, color: 'white',fontWeight:"semi-bold", display: 'block' }}
               component={Link}
               to={'/auth'}
             >
@@ -159,10 +125,14 @@ export const Startup = () => {
                 <section class="header">
   <div class="title-wrapper">
     <h1 class="sweet-title">
-      <span data-text="Sweet">Trackify</span>
+      <span data-text="Sweet">Expensify</span>
     </h1>
-    <span class="top-title">Welcome to </span>
-    <span class="bottom-title">your ultimate expense tracking solution!</span>
+   
+    <span class="bottom-title">A revolutionary app designed to simplify and streamline your expense management process. Say goodbye to tedious spreadsheets and piles of receipts. With Expesify, tracking your expenses becomes effortless, efficient, and even enjoyable!</span>
+    <span class="bottom-title"><Button variant="outlined" component={Link} to={'/auth'} sx={{color:"#64CCC5", borderColor: "#64CCC5",
+    '&:hover': {
+      borderColor: "#64CCC5"}}} disableElevation
+  disableRipple>Get in!</Button></span>
     </div>
 </section>
         </div>

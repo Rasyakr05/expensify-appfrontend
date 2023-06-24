@@ -6,6 +6,8 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import './profile.css'
 import { NavBar } from '../components/navbar';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 import { Button } from '@mui/material';
 
@@ -37,32 +39,93 @@ export const Profile = () => {
 
   return (
     <div>
+      <style>
+      {`
+        body {
+          background-color: #001C30;
+          margin: 0;
+          padding: 0;
+        }
+      `}
+    </style>
       <NavBar />
-      <h3 style={{fontWeight:"bold",fontFamily:"sans-serif",marginTop:"40px",marginRight:"100px"}}>Your Profile</h3>
-      <div className="profileform">
-        
-      <form className="form">
-        <h5 className="text1">Name:</h5>
-        <MDBInput className="mb-4 " style={{ width: '300px'  }} value={info.name} id="form5Example1" />
-        <h5 className="text1">Place:</h5>
-        <textarea className="mb-4 " textarea style={{ width: '300px',height: '90px',marginRight:"500px"  }} value={info.place} id="form5Example1" />
-      
-        <h5 className="text1">Age:</h5>
-        <MDBInput className="mb-4 custom-input" type="number" style={{ width: '300px'}} value={info.age} id="form5Example1" />
-       <h5 className="text1">Email address:</h5>
-        <MDBInput className="mb-4 custom-input" type="email" style={{ width: '300px'}}value={info.email} id="form5Example2" />
-        <h5 className="text1">Phone no.:</h5>
-        <MDBInput className="mb-4 custom-input" style={{ width: '300px' }} type="number" value={info.phoneno} id="form5Example1" />
-        
-        <h5 className="text1">Education:</h5>
-        <textarea className="mb-5" style={{ width: '300px',height: '90px',marginRight:"500px" }} value={info.education} id="form5Example1" />
-        <Link to={`/profupdate/${info._id}`}>
-          <Button type="submit" variant="outlined" style={{ color: '#027148', borderColor: ' #027148',marginRight:"100px" }}block>
+      {/* <p style={{marginLeft:"5px",marginTop:"15px",fontSize:"40px", color:"#176B87", fontFamily:"sans-serif", fontWeight: "bold" }}>Welcome to Your Profile</p> */}
+      <div style={{marginTop:"50px"}}>
+      <div className="profileform add1" >
+     
+      <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >  
+      <form className="form" >
+        <div>
+          <div style={{display:"flex"}}>
+      <TextField
+          id="outlined-read-only-input"
+          label="Name"
+          value={info.name}
+          
+        />
+         <TextField
+          id="outlined-read-only-input"
+          label="Email"
+          type="email"
+          value={info.email}
+          
+        />
+               
+            </div>
+            <div style={{display:"flex"}}>
+        <TextField
+          id="outlined-read-only-input"
+          label="Age"
+          type="number"
+          value={info.age}
+          
+        />
+       
+        <TextField
+          id="outlined-read-only-input"
+          label="Contact Number"
+          type="number"
+          value={info.phoneno}
+          
+        />
+        </div>
+        <div style={{display:"flex"}}>
+        <p style={{fontSize:"40px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" ,marginTop:"10px",textAlign:"right"}}>WELCOME TO  </p>
+         <TextField
+          id="outlined-multiline-static"
+          label="Address"
+          multiline
+          rows={4}
+          value={info.place}
+        />
+        </div>
+        <div style={{display:"flex"}}>
+        <p style={{fontSize:"40px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" ,textAlign:"right"}}>YOUR PROFILE  </p>
+          <TextField
+          id="outlined-multiline-static"
+          label="Education"
+          multiline
+          rows={4}
+          value={info.education}
+        />
+        </div>
+        </div>
+                
+          <Button type="submit" variant="contained" component={Link} to={`/profupdate/${info._id}`} style={{ backgroundColor:"#176B87"}}block>
             Edit
           </Button>
-        </Link>
+        
       </form>
+      </Box>
       </div>
+    </div>
     </div>
   );
 };

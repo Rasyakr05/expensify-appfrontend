@@ -41,29 +41,37 @@ export const Auth = () => {
       setJustifyActive(value);
     };
   
+
+
     const onSubmitLogin = async (event) => {
-      if(username == "admin" && password == "admin"){
+      if (username === "admin" && password === "admin") {
         navigate("/admin");
-        
-      }
-      else{
-      event.preventDefault();
-      try {
-        // const response = await axios.post("http://localhost:3001/auth/login", {
+      } else {
+        event.preventDefault();
+        try {
           const response = await axios.post("/api/auth/login", {
-          username,
-          password,
-        });
-        console.log(response.data);
-        setCookies("access_token", response.data.token);
-        window.localStorage.setItem("userID", response.data.userID);
-        navigate("/home");
-      } catch (err) {
-        alert("Username or password is incorrect");
-        console.error(err);
+            username,
+            password,
+          });
+    
+          // Check if the user is blocked
+          if (response.data.block) {
+            alert("User is blocked. Please contact the administrator.");
+            return;
+          }
+    
+          console.log(response.data);
+          setCookies("access_token", response.data.token);
+          window.localStorage.setItem("userID", response.data.userID);
+          navigate("/home");
+        } catch (err) {
+          alert("Username or password is incorrect");
+          console.error(err);
+        }
       }
-    }
     };
+    
+    
   
     const onSubmitRegister = async (event) => {
       event.preventDefault();
@@ -95,12 +103,23 @@ export const Auth = () => {
     }, [setData]);
 
   return (
-   <div>
+   <div >
+    <style>
+      {`
+        body {
+          background-color: #001C30;
+          margin: 0;
+          padding: 0;
+        }
+      `}
+    </style>
     <NavBar/>
-    <div className="formcss">
-    <div style={{ borderRadius: '20', width: '60%', height: '70%', display: 'flex', flexDirection: 'row', boxShadow: '0px 0px 10px 10px #EFEFEF', backgroundColor: '#FFFFFF' }}>
-    <div style={{ width: '50%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
-        <img src="https://img.freepik.com/free-vector/online-wishes-list-concept-illustration_114360-3055.jpg?w=360" style={{ width: '360', height: '360' }}/>
+    <div className="formcss" >
+    <div style={{ borderRadius: '20', width: '60%', height: '70%', display: 'flex', flexDirection: 'row', boxShadow: '0px 0px 1px 1px #DAFFFB', backgroundColor: '#DAFFFB' }}>
+    <div style={{ width: '50%', height: '100%',  alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
+      <p style={{paddingTop:"80px",paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.3rem)",color:"#176B87",fontWeight:"bold"}}>EXPENSIFY</p>
+      <p style={{paddingLeft:"30px",fontSize:"clamp(0.3rem, 1vw, 1.2rem)",color:"#176B87",fontWeight:"bold"}}>"Your complete expense tracker"</p>
+        <p style={{paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.1rem)",color:"#176B87",fontWeight:"bold"}}>Join thousands of individuals, small businesses, and enterprises who have already embraced Expesify as their go-to expense tracking solution. Our app is available on all major platforms, ensuring you have access whenever and wherever you need it.</p>
     </div>
     <div style={{ width: '50%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
     <form onSubmit={justifyActive === "tab1" ? onSubmitLogin : onSubmitRegister}>
@@ -225,12 +244,12 @@ export const Auth = () => {
                     onChange={(event) => setPassword(event.target.value)}
                     />
                     <div className="d-flex justify-content-center mb-4">
-                    {/* <MDBCheckbox
+                    <MDBCheckbox
                         name="flexCheck"
                         id="flexCheckDefault"
                         label="I have read and agree to the terms"
                     />
-                     */}
+                    
                      </div>
 
                     <Button className="mb-4 w-100" type="submit" variant="outlined">Sign up</Button>

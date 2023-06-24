@@ -51,10 +51,10 @@ export const NavBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor:"#176B87",color:"white"}}>
       <Toolbar disableGutters>
-        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-        <Typography
+        
+      <Typography
           variant="h6"
           noWrap
           component={Link}
@@ -62,14 +62,15 @@ export const NavBar = () => {
           sx={{
             mr: 2,
             display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
+            fontFamily: 'arial',
             fontWeight: 700,
-            letterSpacing: '.3rem',
+
             color: 'inherit',
             textDecoration: 'none',
+            paddingLeft:"12px",
           }}
         >
-          TRACKIFY
+          EXPENSIFY
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -108,7 +109,7 @@ export const NavBar = () => {
             ))}
           </Menu>
         </Box>
-        <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+        
         <Typography
           variant="h5"
           noWrap
@@ -125,7 +126,7 @@ export const NavBar = () => {
             textDecoration: 'none',
           }}
         >
-          TRACKIFY
+          EXPENSIFY
         </Typography>
 
 

@@ -1,4 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import TableHead from '@mui/material/TableHead';
+import Tooltip from '@mui/material/Tooltip';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import axios from "axios";
 import { NavBar } from '../components/navbar';
 import { Button } from '@mui/material';
@@ -58,6 +74,13 @@ export const Home = () => {
     })
     .catch(err  => console.log(err))
   };
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
     // Calculate the total income
     const totalIncome = incomeinfo.reduce((total, income) => total + Number(income.iamount), 0);
 
@@ -68,87 +91,145 @@ export const Home = () => {
     const currentBalance = totalIncome - totalExpense;
 
   return (
-    <div>
+    <div >
+         {/* <style>
+      {`
+        body {
+          
+          background-image: url("https://media.istockphoto.com/id/1326516070/vector/abstract-modern-background-with-hexagon-element-and-silver-white-gradient-color.jpg?s=612x612&w=0&k=20&c=pQuqvEqotCNng1vqOnTM9J02HdLLQfWzaqilC5cgR_c=");
+          margin: 0;
+          padding: 0;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      `}
+    </style> */}
+        <style>
+      {`
+        body {
+          background-color: #001C30;
+          margin: 0;
+          padding: 0;
+        }
+      `}
+    </style>
       <NavBar />
-      <p style={{marginLeft:"5px",marginTop:"9px",fontSize:"40px", color: "#0084FE", fontFamily:"sans-serif", fontWeight: "bold" }}>Overview</p>
-      <div style={{display:"flex",paddingRight:"230px",justifyContent: 'flex-end'}}>
-      <Button onClick={add} style={{ marginBottom:"10px",  transform: 'scale(1)', transition: 'none' }} type="submit" variant="outlined">
+      <p style={{marginLeft:"5px",marginTop:"9px",fontSize:"40px", color:"#176B87", fontFamily:"sans-serif", fontWeight: "bold" }}>Manage Your Finances with Ease</p>
+     
+      <div style={{display:"flex",paddingRight:"30px",justifyContent: 'flex-end'}}>
+      <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2} sx={{justifyContent:"start",paddingLeft:"30px"}}>
+        <Grid item  sx={{justifyContent:"start"}}>
+          
+      {/* <p className="fw-bold" ></p> */}
+      <Item sx={{backgroundColor:"#64CCC5",color:"#001C30"}}>Current Balance : {currentBalance}</Item>
+        </Grid>
+        </Grid>
+        </Box>
+      <Button onClick={add} style={{ display:"flex",marginBottom:"10px",justifyContent:"flex-end",  transform: 'scale(1)', transition: 'none',backgroundColor:"#176B87" }} type="submit" variant="contained">
         ADD Income/Expense
       </Button>
       </div>
-      <MDBContainer style={{ display: 'flex' }}>
-        <section style={{ flex: '1', marginRight: '50px' }}>
-          <div className="shadow-4 rounded-5 overflow-hidden">
-            <MDBTable>
-              <MDBTableHead light>
-                <tr>
-                  <th>Income</th>
-                  <th>Description</th>
-                  <th>Actions</th>
-                </tr>
-              </MDBTableHead>
-              <MDBTableBody style={{ verticalAlign: 'middle' }}>
+      
+
+<div style={{padding:"20px"}}>
+<TableContainer style={{display:"flex"}}>
+  
+        <section style={{ flex: '1', marginRight: '45px', backgroundColor:"#F7FFE5bf", borderRadius:"12px" }}>
+       
+          <div className="shadow-4 rounded-3 overflow-hidden" >
+            <Table>
+              <TableHead style={{ color: 'white' }}>
+                
+                <TableRow>
+                  <TableCell>Income</TableCell>
+                  <TableCell>Description</TableCell>
+                  <TableCell>Actions</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody style={{ verticalAlign: 'middle' }}>
                 {incomeinfo.map((income) => (
-                  <tr key={income.id}>
-                    <td>
+                  <TableRow key={income.id}>
+                    <TableCell>
                       <p className="fw-bold mb-1">{income.iamount}</p>
-                    </td>
-                    <td>
+                    </TableCell>
+                    <TableCell>
                       <p className="fw-bold mb-1">{income.idescription}</p>
-                    </td>
-                    <td>
+                    </TableCell>
+                    <TableCell>
                       <Link to={`/updateincome/${income._id}`} ><Button  variant="outlined" style={{ color: '#027148', borderColor: ' #027148' }}>
                         Edit
                       </Button></Link>
                       <Button onClick={(e) => handleDelete1(income._id)} variant="outlined" color="error" style={{ marginLeft: '10px' }}>
                         Delete
                       </Button>
-                    </td>
-                  </tr>
+                    </TableCell>
+                  </TableRow>
                 ))}
-                <p className="fw-bold">Total Income:{totalIncome}</p>
-              </MDBTableBody>
-            </MDBTable>
+                           
+                
+              </TableBody>
+            </Table>
+            
           </div>
+          
         </section>
-        <section style={{ flex: '1', marginLeft: '10px' }}>
-          <div className="shadow-4 rounded-5 overflow-hidden">
-            <MDBTable>
-              <MDBTableHead light>
-                <tr>
-                  <th>Expense</th>
-                  <th>Description</th>
-                  <th>Actions</th>
-                </tr>
-              </MDBTableHead>
-              <MDBTableBody style={{ verticalAlign: 'middle' }}>
+        
+        <section style={{ flex: '1', marginLeft: '5px', backgroundColor:"#F7FFE5bf", borderRadius:"12px"  }}>
+          <div className="shadow-4 rounded-3 overflow-hidden" >
+            <Table>
+              <TableHead >
+                <TableRow>
+                  <TableCell>Expense</TableCell>
+                  <TableCell>Description</TableCell>
+                  <TableCell>Actions</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody style={{ verticalAlign: 'middle' }}>
                 {expenseinfo.map((expense) => (
-                  <tr key={expense.id}>
-                    <td>
+                  <TableRow key={expense.id}>
+                    <TableCell>
                       <p className="fw-bold mb-1">{expense.eamount}</p>
-                    </td>
-                    <td>
+                    </TableCell>
+                    <TableCell>
                       <p className="fw-bold mb-1">{expense.edescription}</p>
-                    </td>
-                    <td>
+                    </TableCell>
+                    <TableCell>
                     <Link to={`/updateexpense/${expense._id}`} ><Button  variant="outlined" style={{ color: '#027148', borderColor: ' #027148' }}>
                         Edit
                       </Button></Link>
                       <Button onClick={(e) => handleDelete2(expense._id)} variant="outlined" color="error" style={{ marginLeft: '10px' }}>
                         Delete
                       </Button>
-                    </td>
-                  </tr>
+                    </TableCell>
+                  </TableRow>
+                  
                 ))}
-                <p className="fw-bold">Total Expense:{totalExpense}</p>
-              </MDBTableBody>
-            </MDBTable>
+                
+              </TableBody>
+            </Table>
           </div>
         </section>
-      </MDBContainer>
-      
-      
-      <p className="fw-bold">Current Balance:{currentBalance}</p>
+        
+      </TableContainer>
+                  
+     
+      </div>
+        <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2} sx={{justifyContent:"end",paddingTop:"30px",paddingRight:"30px"}}>
+        <Grid item  sx={{justifyContent:"start",boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)"}}>
+          
+      {/* <p className="fw-bold" ></p> */}
+      <Item  sx={{backgroundColor:"#64CCC5bf",color:"#001C30",fontWeight:"bold",padding:"10px",boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)"}}>
+        <p style={{textAlign:"left"}}>Total   Income    : {totalIncome}</p>
+        <p style={{textAlign:"left"}}>Total   Expense   : {totalExpense}</p>
+        <p style={{textAlign:"left"}}>Current Balance : {currentBalance}</p>
+      </Item>
+        </Grid>
+        </Grid>
+        
+        </Box>
+ 
     </div>
   );
 };

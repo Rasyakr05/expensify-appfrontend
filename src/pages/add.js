@@ -19,8 +19,12 @@ import {
   MDBTabsContent,
   MDBTabsPane
 } from 'mdb-react-ui-kit';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export const Add = () => {
+  
 
     const navigate = useNavigate();
 
@@ -94,9 +98,21 @@ export const Add = () => {
 
     return (
         <div >
+           <style>
+      {`
+        body {
+          background-color: #001C30;
+          margin: 0;
+          padding: 0;
+        }
+      `}
+    </style>
         <NavBar/>
-        <div className='add'>
-        <MDBTabs pills justify className='mb-3'>
+        {/* <p style={{marginLeft:"5px",marginTop:"15px",fontSize:"40px",color:"#5A96E3", fontFamily:"sans-serif", fontWeight: "bold" }}>Add Your Income/Expenditure</p> */}
+       <div style={{marginTop:"100px"}}>
+        <div className='add' >
+        <p style={{fontSize:"40px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" }}>ADD YOUR INCOME/EXPENSE </p>
+        <MDBTabs pills justify className='mb-3' style={{padding:"10px"}}>
             <MDBTabsItem>
             <MDBTabsLink
                 onClick={() => handleLoginRegisterClick('Income')}
@@ -115,58 +131,72 @@ export const Add = () => {
             </MDBTabsItem>
         </MDBTabs>
 
-        <MDBTabsContent>
+        <MDBTabsContent style={{padding:"10px"}}>
             <MDBTabsPane show={loginRegisterActive === 'Income'}>
             <form method='Post' onSubmit={handleSubmit}>
                 {/* Income */}
-                <MDBInput 
+                <div>
+                <TextField fullWidth={true}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
+                variant="filled"
                 onChange={e => handleChange({ iamount: e.target.value })} 
                 value={incomeinfo.iamount}
-                label='Amount' 
                 name='iamount' 
+                label='AMOUNT'  
                 className='mb-3' 
                 type='number' 
-                id='form7Example1'/>
-                <MDBInput 
+                id='form7Example1'
+                />
+                </div>
+                <div>
+                
+                <TextField fullWidth={true}
                 className='mb-3' 
                 onChange={e => handleChange({ idescription: e.target.value })}  
                 value={incomeinfo.idescription} 
                 type='text' 
+                label='DESCRIPTION'
                 name='idescription' 
-                id='form7Example2' 
-                label='Description' />
-                <Button variant="outlined" type='submit' >
+                id='form7Example2'  />
+                </div>
+                <Button variant="contained"  type='submit' className='mb-3'  sx={{backgroundColor:"#176B87",color:"white"}}>
                 ADD
                 </Button>
-
             </form>
             </MDBTabsPane>
             <MDBTabsPane show={loginRegisterActive === 'Expense'}>
             <form method='Post' onSubmit={handleSubmit2}>
                 {/* Income */}
-                <MDBInput 
+                <TextField fullWidth={true}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
+                variant="filled"
+                label="AMOUNT"
                 onChange={e => handleChange2({ eamount: e.target.value })} 
                 value={expenseinfo.iamount}
-                label='Amount' 
                 name='eamount' 
                 className='mb-3' 
                 type='number' 
                 id='form7Example1'/>
-                <MDBInput 
+               <TextField fullWidth={true}
+               label="DESCRIPTION"
                 className='mb-3' 
                 onChange={e => handleChange2({ edescription: e.target.value })}  
                 value={expenseinfo.edescription} 
                 type='text' 
                 name='edescription' 
-                id='form7Example2' 
-                label='Description' />
-                <Button variant="outlined"  type='submit' className='mb-3' >
+                id='form7Example2'  />
+                <Button variant="contained"  type='submit' className='mb-3' sx={{backgroundColor:"#176B87",color:"white"}} >
                 ADD
                 </Button>
-
             </form>
             </MDBTabsPane>
         </MDBTabsContent>
+        
+        </div>
         </div>
         </div>
     

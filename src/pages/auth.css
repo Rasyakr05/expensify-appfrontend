@@ -4,5 +4,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 90px;
+    margin-top: 110px;
 }
+*{
+    /* background-color: #E1ECC8; */
+}
+/* body {
+    background-color: #E1ECC8;
+    margin: 0;
+    padding: 0;
+} */
