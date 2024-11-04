@@ -17,8 +17,8 @@ export const Updateincome = () => {
   const [idescription, setIdescription] = useState();
 
   useEffect(() => {
-    // axios.get(`http://localhost:3001/add/income/${id}`)
-    axios.get(`/api/add/income/${id}`)
+    axios.get(`http://localhost:3001/api/add/income/${id}`)
+    // axios.get(`/api/add/income/${id}`)
       .then(result => {
         console.log(result);
         setIamount(result.data.iamount);
@@ -29,8 +29,8 @@ export const Updateincome = () => {
 
   const Update = (e) => {
     e.preventDefault();
-    // axios.put(`http://localhost:3001/add/incomeupdate/${id}`, { iamount, idescription })
-    axios.put(`/api/add/incomeupdate/${id}`, { iamount, idescription })
+    axios.put(`http://localhost:3001/api/add/incomeupdate/${id}`, { iamount, idescription })
+    // axios.put(`/api/add/incomeupdate/${id}`, { iamount, idescription })
       .then(result => {
         console.log(result);
         navigate('/home');

@@ -26,8 +26,8 @@ export const Profupdate = () => {
 
   useEffect(() => {
     axios
-      // .get("http://localhost:3001/auth/profile")
-      .get("/api/auth/profile")
+      .get("http://localhost:3001/api/auth/profile")
+      //.get("/api/auth/profile")
       .then(result => {
         // Filter income information by comparing the user ID
         const filteredInfo = result.data.filter(info => info._id === userID);
@@ -55,8 +55,8 @@ const Update = (e) => {
     place: info.place,
   };
 
-  // axios.put(`http://localhost:3001/auth/profileupdate/${id}`, updatedFields)
-  axios.put(`/api/auth/profileupdate/${id}`, updatedFields)
+   axios.put(`http://localhost:3001/api/auth/profileupdate/${id}`, updatedFields)
+  // axios.put(`/api/auth/profileupdate/${id}`, updatedFields)
     .then(result => {
       console.log(result);
       navigate('/profile');

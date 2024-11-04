@@ -49,7 +49,7 @@ export const Auth = () => {
       } else {
         event.preventDefault();
         try {
-          const response = await axios.post("/api/auth/login", {
+          const response = await axios.post("http://localhost:3001/api/auth/login", {
             username,
             password,
           });
@@ -81,8 +81,8 @@ export const Auth = () => {
         ...data,
       });
       try {
-        // await axios.post("http://localhost:3001/auth/register", {
-          await axios.post("/api/auth/register", {
+        await axios.post("http://localhost:3001/api/auth/register", {
+          // await axios.post("/api/auth/register", {
           username,
           password,
           ...data,
@@ -115,11 +115,11 @@ export const Auth = () => {
     </style>
     <NavBar/>
     <div className="formcss" >
-    <div style={{ borderRadius: '20', width: '60%', height: '70%', display: 'flex', flexDirection: 'row', boxShadow: '0px 0px 1px 1px #DAFFFB', backgroundColor: '#DAFFFB' }}>
-    <div style={{ width: '50%', height: '100%',  alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
-      <p style={{paddingTop:"80px",paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.3rem)",color:"#176B87",fontWeight:"bold"}}>EXPENSIFY</p>
+    <div style={{ borderRadius: '20', width: '80%', height: '85%', display: 'flex', flexDirection: 'row', boxShadow: '0px 0px 1px 1px #DAFFFB', backgroundColor: '#DAFFFB' }}>
+    <div style={{ width: '50%', height: '120%',  alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
+      <p style={{paddingTop:"250px",paddingLeft:"30px",fontSize:"50px",color:"#176B87",fontWeight:"bold"}}>TRACK-MYSPEND</p>
       <p style={{paddingLeft:"30px",fontSize:"clamp(0.3rem, 1vw, 1.2rem)",color:"#176B87",fontWeight:"bold"}}>"Your complete expense tracker"</p>
-        <p style={{paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.1rem)",color:"#176B87",fontWeight:"bold"}}>Join thousands of individuals, small businesses, and enterprises who have already embraced Expensify as their go-to expense tracking solution. Our app is available on all major platforms, ensuring you have access whenever and wherever you need it.</p>
+        <p style={{paddingLeft:"30px",fontSize:"clamp(0.5rem, 2vw, 1.1rem)",color:"#176B87",fontWeight:"bold"}}>Wondering where all your money mysteriously disappeared to? Let our budget tracker reveal the truth, one painfully accurate pie chart at a time—so you can laugh, cry, and maybe even save a little!</p>
     </div>
     <div style={{ width: '50%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '20' }}>
     <form onSubmit={justifyActive === "tab1" ? onSubmitLogin : onSubmitRegister}>
@@ -177,7 +177,7 @@ export const Auth = () => {
                     </p>
                 </MDBTabsPane>
 
-                <MDBTabsPane show={justifyActive === "tab2"}>
+                <MDBTabsPane className="" show={justifyActive === "tab2"}>
                 <MDBInput
                     wrapperClass="mb-4"
                     value={data.name}

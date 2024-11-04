@@ -18,8 +18,8 @@ export const Updateexpense = () => {
   const [edescription, setEdescription] = useState();
 
   useEffect(() => {
-    // axios.get(`http://localhost:3001/add/expense/${id}`)
-    axios.get(`/api/add/expense/${id}`)
+    axios.get(`http://localhost:3001/api/add/expense/${id}`)
+    // axios.get(`/api/add/expense/${id}`)
       .then(result => {
         console.log(result);
         setEamount(result.data.eamount);
@@ -30,8 +30,8 @@ export const Updateexpense = () => {
 
   const Update = (e) => {
     e.preventDefault();
-    // axios.put(`http://localhost:3001/add/expenseupdate/${id}`, { eamount, edescription })
-    axios.put(`/api/add/expenseupdate/${id}`, { eamount, edescription })
+    axios.put(`http://localhost:3001/api/add/expenseupdate/${id}`, { eamount, edescription })
+    // axios.put(`/api/add/expenseupdate/${id}`, { eamount, edescription })
       .then(result => {
         console.log(result);
         navigate('/home');

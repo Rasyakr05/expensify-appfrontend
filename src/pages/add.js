@@ -62,15 +62,15 @@ export const Add = () => {
           const handleSubmit = async (event) => {
             event.preventDefault();
             try {
-              // await axios.post("http://localhost:3001/add/incomeadd",
-              await axios.post("/api/add/incomeadd",
+              await axios.post("http://localhost:3001/api/add/incomeadd",
+              // await axios.post("/api/add/incomeadd",
                 { ...incomeinfo },
                 {
                   headers: { authorization: cookies.access_token },
                 }
               );
         
-              alert("income added successfully");
+              alert("income added successfully,you have got a lot to spend");
               navigate('/home');
 
             } catch (error) {
@@ -80,8 +80,8 @@ export const Add = () => {
           const handleSubmit2 = async (event) => {
             event.preventDefault();
             try {
-              // await axios.post("http://localhost:3001/add/expenseadd",
-              await axios.post("/api/add/expenseadd",
+              await axios.post("http://localhost:3001/api/add/expenseadd",
+              // await axios.post("/api/add/expenseadd",
                
               { ...expenseinfo },
                 {
@@ -89,7 +89,7 @@ export const Add = () => {
                 }
               );
         
-              alert("expense added successfully");
+              alert("expense added successfully!!! you are getting close to be broke");
               navigate('/home');
             } catch (error) {
               console.error(error);

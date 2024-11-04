@@ -70,7 +70,7 @@ export const NavBar = () => {
             paddingLeft:"12px",
           }}
         >
-          EXPENSIFY
+          TRACK-MYSPEND
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -126,7 +126,7 @@ export const NavBar = () => {
             textDecoration: 'none',
           }}
         >
-          EXPENSIFY
+          TRACK-MYSPEND
         </Typography>
 
 

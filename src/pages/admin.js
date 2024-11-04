@@ -61,17 +61,17 @@ export const Admin = () => {
 
   useEffect(() => {
     axios
-      // .get("http://localhost:3001/auth/profile")
-      .get("/api/auth/profile")
+      .get("http://localhost:3001/api/auth/profile")
+      // .get("/api/auth/profile")
 
       .then((result) => setInfo(result.data))
       .catch((error) => console.error(error));
   }, []);
 
   const handleDelete1 = (id) => {
-    // axios.delete('http://localhost:3001/auth/profile/'+id)
+    axios.delete('http://localhost:3001/api/auth/profile/'+id)
     axios
-      .delete("/api/auth/profile/" + id)
+      // .delete("/api/auth/profile/" + id)
       .then((res) => {
         console.log(res);
         window.location.reload();

@@ -3,9 +3,9 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: "Exo 2", sans-serif;
-  background: linear-gradient(to top, #001C30, #001C30);
-  background: -webkit-linear-gradient(top, #001C30, #001C30);
+  font-family: "Jomhuria", sans-serif;
+  background: linear-gradient(to top, #d32ee2, #16639a);
+  background: -webkit-linear-gradient(top, #87b9dd, #001C30);
 }
 
 .startup-page .header {
@@ -31,7 +31,7 @@
 
 .startup-page .top-title {
   order: 1;
-  color: #fff;
+  color: #ffff;
   font-size: clamp(1rem, 4vw, 1.5rem);
   margin-bottom: 1rem;
 }
@@ -75,7 +75,9 @@
   }
 }
 
-
+.startup-page .sweet-title .main-title{
+  color: linear-gradient(90deg, #2aa8a1, #4311da);
+}
 .startup-page::-webkit-scrollbar {
   width: 0.5em;
   background-color: #f5f5f5;

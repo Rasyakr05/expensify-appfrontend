@@ -63,12 +63,12 @@ export const Startup = () => {
             fontFamily: 'arial',
             fontWeight: 700,
 
-            color: 'inherit',
+            color: '#FF69B4',
             textDecoration: 'none',
             paddingLeft:"12px",
           }}
         >
-          EXPENSIFY
+          TRACK-MYSPEND
         </Typography>
 
         
@@ -84,12 +84,12 @@ export const Startup = () => {
             flexGrow: 1,
             fontFamily: 'arial',
             fontWeight: 700,
-
-            color: 'inherit',
+        
+            color: '#FFB6C1',
             textDecoration: 'none',
           }}
         >
-          EXPENSIFY
+          TRACK-MYSPEND
         </Typography>
 
 
@@ -125,11 +125,12 @@ export const Startup = () => {
                 <section class="header">
   <div class="title-wrapper">
     <h1 class="sweet-title">
-      <span data-text="Sweet">Expensify</span>
+      <span data-text=""  class="main-title">  TRACK-MYSPEND</span>
     </h1>
    
-    <span class="bottom-title">A revolutionary app designed to simplify and streamline your expense management process. Say goodbye to tedious spreadsheets and piles of receipts. With Expesify, tracking your expenses becomes effortless, efficient, and even enjoyable!</span>
-    <span class="bottom-title"><Button variant="outlined" component={Link} to={'/auth'} sx={{color:"#64CCC5", borderColor: "#64CCC5",
+    <span class="bottom-title">"Ever wonder where your money went? Let our tracker show you...
+       so you can laugh, cry, and maybe save a little too!"</span>
+    <span class="bottom-title"><Button variant="outlined" component={Link} to={'/auth'} sx={{color:" white", borderColor: "#64CCC5",
     '&:hover': {
       borderColor: "#64CCC5"}}} disableElevation
   disableRipple>Get in!</Button></span>

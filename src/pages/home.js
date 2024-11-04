@@ -36,8 +36,8 @@ export const Home = () => {
   };
   const [incomeinfo, setIncomeinfo] = useState([]);
   useEffect(() => {
-    // axios.get('http://localhost:3001/add/incomeget')
-    axios.get('/api/add/incomeget')
+    axios.get('http://localhost:3001/api/add/incomeget')
+    // axios.get('/api/add/incomeget')
     .then(resulti => {
       // Filter income information by comparing the user ID
       const filteredIncome = resulti.data.filter(income => income.userOwner === userID);
@@ -48,8 +48,8 @@ export const Home = () => {
 
   const [expenseinfo, setExpenseinfo] = useState([]);
   useEffect(() => {
-    // axios.get('http://localhost:3001/add/expenseget')
-    axios.get('/api/add/expenseget')
+    axios.get('http://localhost:3001/api/add/expenseget')
+    // axios.get('/api/add/expenseget')
       .then(resulte => {
         // Filter expense information by comparing the user ID
         const filteredExpense = resulte.data.filter(expense => expense.userOwner === userID);
@@ -59,16 +59,16 @@ export const Home = () => {
   }, [])
 
   const handleDelete1 = (id) => {
-    // axios.delete('http://localhost:3001/add/incomedel/'+id)
-    axios.delete('/api/add/incomedel/'+id)
+    axios.delete('http://localhost:3001/api/add/incomedel/'+id)
+    // axios.delete('/api/add/incomedel/'+id)
     .then(res=> {console.log(res)
       window.location.reload();
     })
     .catch(err  => console.log(err))
   };
   const handleDelete2 = (id) => {
-    // axios.delete('http://localhost:3001/add/expensedel/'+id)
-    axios.delete('/api/add/expensedel/'+id)
+    axios.delete('http://localhost:3001/api/add/expensedel/'+id)
+    // axios.delete('/api/add/expensedel/'+id)
     .then(res=> {console.log(res)
     window.location.reload();
     })

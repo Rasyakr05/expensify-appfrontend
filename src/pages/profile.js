@@ -26,8 +26,8 @@ export const Profile = () => {
 
   useEffect(() => {
     axios
-      // .get("http://localhost:3001/auth/profile")
-      .get("/api/auth/profile")
+      .get("http://localhost:3001/api/auth/profile")
+      // .get("/api/auth/profile")
       .then(result => {
         // Filter income information by comparing the user ID
         const filteredInfo = result.data.filter(info => info._id === userID);
@@ -97,7 +97,7 @@ export const Profile = () => {
         />
         </div>
         <div style={{display:"flex"}}>
-        <p style={{fontSize:"40px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" ,marginTop:"10px",textAlign:"right"}}>WELCOME TO  </p>
+        <p style={{fontSize:"30px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" ,textAlign:"center"}}>WELCOME TO  </p>
          <TextField
           id="outlined-multiline-static"
           label="Address"
@@ -107,7 +107,7 @@ export const Profile = () => {
         />
         </div>
         <div style={{display:"flex"}}>
-        <p style={{fontSize:"40px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" ,textAlign:"right"}}>YOUR PROFILE  </p>
+        <p style={{fontSize:"30px", color:"#001C30", fontFamily:"sans-serif", fontWeight: "bold" ,textAlign:"center"}}>YOUR PROFILE  </p>
           <TextField
           id="outlined-multiline-static"
           label="Education"
