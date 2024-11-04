@@ -26,7 +26,7 @@ export const Profile = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/auth/profile")
+      .get("https://budget-tracker.rovn.me/api/auth/profile")
       // .get("/api/auth/profile")
       .then(result => {
         // Filter income information by comparing the user ID

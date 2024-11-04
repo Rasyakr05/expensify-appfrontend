@@ -62,7 +62,7 @@ export const Add = () => {
           const handleSubmit = async (event) => {
             event.preventDefault();
             try {
-              await axios.post("http://localhost:3001/api/add/incomeadd",
+              await axios.post("https://budget-tracker.rovn.me/api/add/incomeadd",
               // await axios.post("/api/add/incomeadd",
                 { ...incomeinfo },
                 {
@@ -80,7 +80,7 @@ export const Add = () => {
           const handleSubmit2 = async (event) => {
             event.preventDefault();
             try {
-              await axios.post("http://localhost:3001/api/add/expenseadd",
+              await axios.post("https://budget-tracker.rovn.me/api/add/expenseadd",
               // await axios.post("/api/add/expenseadd",
                
               { ...expenseinfo },

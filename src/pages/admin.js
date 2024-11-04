@@ -61,7 +61,7 @@ export const Admin = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/auth/profile")
+      .get("https://budget-tracker.rovn.me/api/auth/profile")
       // .get("/api/auth/profile")
 
       .then((result) => setInfo(result.data))
@@ -69,7 +69,7 @@ export const Admin = () => {
   }, []);
 
   const handleDelete1 = (id) => {
-    axios.delete('http://localhost:3001/api/auth/profile/'+id)
+    axios.delete('https://budget-tracker.rovn.me/api/auth/profile/'+id)
     axios
       // .delete("/api/auth/profile/" + id)
       .then((res) => {

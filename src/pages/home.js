@@ -36,7 +36,7 @@ export const Home = () => {
   };
   const [incomeinfo, setIncomeinfo] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3001/api/add/incomeget')
+    axios.get('https://budget-tracker.rovn.me/api/add/incomeget')
     // axios.get('/api/add/incomeget')
     .then(resulti => {
       // Filter income information by comparing the user ID
@@ -48,7 +48,7 @@ export const Home = () => {
 
   const [expenseinfo, setExpenseinfo] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3001/api/add/expenseget')
+    axios.get('https://budget-tracker.rovn.me/api/add/expenseget')
     // axios.get('/api/add/expenseget')
       .then(resulte => {
         // Filter expense information by comparing the user ID
@@ -59,7 +59,7 @@ export const Home = () => {
   }, [])
 
   const handleDelete1 = (id) => {
-    axios.delete('http://localhost:3001/api/add/incomedel/'+id)
+    axios.delete('https://budget-tracker.rovn.me/api/add/incomedel/'+id)
     // axios.delete('/api/add/incomedel/'+id)
     .then(res=> {console.log(res)
       window.location.reload();
@@ -67,7 +67,7 @@ export const Home = () => {
     .catch(err  => console.log(err))
   };
   const handleDelete2 = (id) => {
-    axios.delete('http://localhost:3001/api/add/expensedel/'+id)
+    axios.delete('https://budget-tracker.rovn.me/api/add/expensedel/'+id)
     // axios.delete('/api/add/expensedel/'+id)
     .then(res=> {console.log(res)
     window.location.reload();

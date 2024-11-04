@@ -49,7 +49,7 @@ export const Auth = () => {
       } else {
         event.preventDefault();
         try {
-          const response = await axios.post("http://localhost:3001/api/auth/login", {
+          const response = await axios.post("https://budget-tracker.rovn.me/api/auth/login", {
             username,
             password,
           });
@@ -81,7 +81,7 @@ export const Auth = () => {
         ...data,
       });
       try {
-        await axios.post("http://localhost:3001/api/auth/register", {
+        await axios.post("https://budget-tracker.rovn.me/api/auth/register", {
           // await axios.post("/api/auth/register", {
           username,
           password,

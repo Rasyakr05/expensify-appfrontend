@@ -18,7 +18,7 @@ export const Updateexpense = () => {
   const [edescription, setEdescription] = useState();
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/add/expense/${id}`)
+    axios.get(`https://budget-tracker.rovn.me/api/add/expense/${id}`)
     // axios.get(`/api/add/expense/${id}`)
       .then(result => {
         console.log(result);
@@ -30,7 +30,7 @@ export const Updateexpense = () => {
 
   const Update = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:3001/api/add/expenseupdate/${id}`, { eamount, edescription })
+    axios.put(`https://budget-tracker.rovn.me/api/add/expenseupdate/${id}`, { eamount, edescription })
     // axios.put(`/api/add/expenseupdate/${id}`, { eamount, edescription })
       .then(result => {
         console.log(result);
